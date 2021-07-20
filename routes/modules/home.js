@@ -14,11 +14,11 @@ router.get('/expense/new', (req, res) => {
 })
 
 router.post('/expense', (req, res) => {
-  console.log(req.body)
-  // const { name, category, date, amount} = req.body
-  // return Expen.create({ name, category, date, amount })
-  //     .then(() => res.redirect('/'))
-  //     .catch (error => console.log(error))
+  const { name, category, date, amount } = req.body
+
+  return Expen.create({ name, category, date, amount })
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
 })
 
 module.exports = router
