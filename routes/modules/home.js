@@ -5,7 +5,11 @@ const Expen = require('../../models/expense')
 
 //首頁
 router.get('/', (req, res) => {
-  res.render('index')
+  Expen.find()
+      .lean()
+      .sort({_id: 'asc'})
+      .then( expense => res.render('index', {expense}))
+      .catch( error => console.error(error))
 })
 
 //新增

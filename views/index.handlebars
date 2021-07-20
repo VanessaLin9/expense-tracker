@@ -23,34 +23,39 @@
   </div>
 
   <div class="d-flex justify-content-center">
-    <table class="table table-striped">
+    <table class="table table-striped table-borderless">
       <thead>
         <tr>
-          {{!-- <th scope="col">#</th> --}}
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+          <th scope="col" class="invisible">First</th>
+          <th scope="col" class="invisible">Last</th>
+          <th scope="col" class="invisible">Handle</th>
         </tr>
       </thead>
+      
       <tbody>
+
+        {{#each expense}}
         <tr>
           {{!-- <th scope="row">1</th> --}}
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
+          <td class="align-middle">      
+              {{this.category}} 
+          </td>
+
+          <td>
+            <div class="font-weight-bold">
+              <h4>{{this.name}}</h4>
+            </div>
+            <div>
+              <small>{{this.date}}</small>
+            </div>
+          </td>
+
+          <td class="align-middle text-right">
+            {{this.amount}}
+          </td>
         </tr>
-        <tr>
-          {{!-- <th scope="row">2</th> --}}
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          {{!-- <th scope="row">3</th> --}}
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-        </tr>
+        {{/each}}
+        
       </tbody>
     </table>
   </div>
