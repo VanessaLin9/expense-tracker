@@ -6,6 +6,7 @@ const app = express()
 //畫面, 資料
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
+const dateStyle = require('./tools/tools')
 app.use(express.static('public'))
 require('./config/mongoose')
 
@@ -15,7 +16,10 @@ const routes = require('./routes')
 const PORT = process.env.PORT || 3000
 
 //模板引擎
-app.engine('handlebars', exphbs({ defaultLayout: 'main'}))
+app.engine('handlebars', exphbs({ 
+  defaultLayout: 'main',
+  helpers: { dateStyle }
+}))
 app.set('view engine', 'handlebars') //啟用模板引擎
 
 

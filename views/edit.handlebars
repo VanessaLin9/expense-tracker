@@ -1,0 +1,52 @@
+<div class="container mt-3">
+  <div class="d-flex justify-content-center">
+    <form action="/expense/{{expense._id}}" method="POST">
+
+      <div class="d-flex justify-content-between">
+        <small style=" display: inline;">*必填欄位</small>
+        <h4 style=" display: inline;">請輸入你的支出</h4>
+      </div>
+
+      <div class="form-group row">
+        <label for="name" class="col-sm-4 card-title mb-1">*名稱 : </label>
+        <input type="text" placeholder="請輸入支出名稱" name="name" id="name" class="col-sm-8" value="{{ expense.name }}"
+          required>
+      </div>
+
+      <div class="form-group row">
+        <label for="date" class="col-sm-4 card-title mb-1">*日期 : </label>
+        <input type="date" min="2020-01-01" max="2023-12-30" name="date" id="date" class="col-sm-8"
+          value="2021-07-21" required>
+      </div>
+
+      <div class="form-group row">
+        <label for="category" class="col-sm-4 card-title mb-1">*支出類別 : </label>
+        <select name="category" required>
+          <option value="home">家居物業</option>
+          <option value="shuttle">交通出行</option>
+          <option value="entertain">休閒娛樂</option>
+          <option value="food">餐飲食品</option>
+          <option value="other">其他</option>
+        </select>
+      </div>
+
+      <div class="form-group row">
+        <label for="amount" class="col-sm-4 card-title mb-1">*金額 : </label>
+        <input type="number" placeholder="請輸入支出金額" name="amount" id="amount" class="col-sm-8"
+          value="{{ expense.amount }}" required>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-major ml-5">儲存</button>
+      </div>
+
+      <div class="d-flex justify-content-end">
+        <a href="/" class="text-reset">
+          <i class="fas fa-door-open fa-lg"></i>
+        </a>
+      </div>
+
+    </form>
+
+  </div>
+</div>

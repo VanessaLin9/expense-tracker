@@ -18,7 +18,7 @@
  
   </div>
 
-  <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center m-2">
     <h1>總金額:12345元</h1>
   </div>
 
@@ -46,13 +46,25 @@
               <h4>{{this.name}}</h4>
             </div>
             <div>
-              <small>{{this.date}}</small>
+              <small>{{ dateStyle this.date }}</small>
             </div>
           </td>
 
           <td class="align-middle text-right">
-            {{this.amount}}
+            <h4>
+              {{this.amount}}
+            </h4>
           </td>
+
+          <td class="align-middle text-right">
+            <div class="col-auto"> 
+              <a class="text-reset m-1" href="./expense/{{ this._id }}/edit"><i class="fas fa-edit fa-lg"></i></a>
+              
+              <a class="text-reset m-1" href="./expense/{{ this._id }}/edit" method="POST"><i class="fas fa-trash-alt fa-lg"></i></a>
+
+            </div>
+          </td>
+
         </tr>
         {{/each}}
         

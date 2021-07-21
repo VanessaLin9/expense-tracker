@@ -2,24 +2,24 @@
   <div class="d-flex justify-content-center">
     <form action="/expense" method="POST">
 
-      <div class="d-flex justify-content-around">
-        <p style=" display: inline;">*必填欄位</p>
+      <div class="d-flex justify-content-between">
+        <small style=" display: inline;">*必填欄位</small>
         <h4 style=" display: inline;">請輸入你的支出</h4>
       </div>
 
       <div class="form-group row">
-        <label for="name" class="col-sm-4 card-title mb-1">名稱 : </label>
+        <label for="name" class="col-sm-4 card-title mb-1">*名稱 : </label>
         <input type="text" placeholder="請輸入支出名稱" name="name" id="name" class="col-sm-8" required>
       </div>
 
       <div class="form-group row">
-        <label for="date" class="col-sm-4 card-title mb-1">日期 : </label>
+        <label for="date" class="col-sm-4 card-title mb-1">*日期 : </label>
         <input type="date"  min="2020-01-01"
        max="2023-12-30" name="date" id="date" class="col-sm-8" required>
       </div>
 
       <div class="form-group row">
-        <label for="category" class="col-sm-4 card-title mb-1">支出類別 : </label>
+        <label for="category" class="col-sm-4 card-title mb-1">*支出類別 : </label>
         <select name="category" required>
           <option value="home">家居物業</option>
           <option value="shuttle">交通出行</option>
@@ -30,7 +30,7 @@
       </div>
 
       <div class="form-group row">
-        <label for="amount" class="col-sm-4 card-title mb-1">金額 : </label>
+        <label for="amount" class="col-sm-4 card-title mb-1">*金額 : </label>
         <input type="number" placeholder="請輸入支出金額" name="amount" id="amount" class="col-sm-8" required>
       </div>
 
