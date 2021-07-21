@@ -53,4 +53,13 @@ router.post('/expense/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
+//刪除
+router.delete('/expense/:id', (req, res) => {
+  const id = req.params.id
+  return Expen.findById(id)
+    .then( expense => expense.remove())
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
+
 module.exports = router

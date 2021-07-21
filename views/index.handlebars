@@ -15,7 +15,7 @@
         <a class="dropdown-item" href="#">其他</a>
       </div>
     </div>
- 
+
   </div>
 
   <div class="d-flex justify-content-center m-2">
@@ -31,14 +31,14 @@
           <th scope="col" class="invisible">Handle</th>
         </tr>
       </thead>
-      
+
       <tbody>
 
         {{#each expense}}
         <tr>
           {{!-- <th scope="row">1</th> --}}
-          <td class="align-middle">      
-              {{this.category}} 
+          <td class="align-middle">
+            {{this.category}}
           </td>
 
           <td>
@@ -57,17 +57,22 @@
           </td>
 
           <td class="align-middle text-right">
-            <div class="col-auto"> 
+            <div class="col-auto">
               <a class="text-reset m-1" href="./expense/{{ this._id }}/edit"><i class="fas fa-edit fa-lg"></i></a>
-              
-              <a class="text-reset m-1" href="./expense/{{ this._id }}/edit" method="POST"><i class="fas fa-trash-alt fa-lg"></i></a>
+
+              <form action="./expense/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+                <button type="submit">
+                  <p class="text-reset m-1"><i class="fas fa-trash-alt fa-lg"></i></p>
+                </button>
+              </form>
+
 
             </div>
           </td>
 
         </tr>
         {{/each}}
-        
+
       </tbody>
     </table>
   </div>
@@ -76,4 +81,4 @@
     <a href="./expense/new" class="btn btn-warning">新增支出</button>
     </a>
 
-</div>
+  </div>
