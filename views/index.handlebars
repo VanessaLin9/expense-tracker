@@ -2,24 +2,22 @@
 
   <div class="d-flex justify-content-center">
 
-    <div class="dropdown ">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">
-        Dropdown button
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">家居物業</a>
-        <a class="dropdown-item" href="#">交通出行</a>
-        <a class="dropdown-item" href="#">休閒娛樂</a>
-        <a class="dropdown-item" href="#">餐飲食品</a>
-        <a class="dropdown-item" href="#">其他</a>
-      </div>
-    </div>
+    <form action="/">
+      <select class="form-select" name="filter" id="filter" onchange="submit()" aria-label="Default select">
+        <option value="" selected>全部類別</option>
+        <option value="home">家居物業</option>
+        <option value="shuttle">交通出行</option>
+        <option value="entertain">休閒娛樂</option>
+        <option value="food">餐飲食品</option>
+        <option value="other">其他</option>
+      </select>
+    </form>
 
   </div>
 
   <div class="d-flex justify-content-center m-2">
-    <h1>總金額:12345元</h1>
+    <h1>總金額:</h1>
+    <div>{{totalAmount}}</div>
   </div>
 
   <div class="d-flex justify-content-center">
@@ -34,11 +32,11 @@
 
       <tbody>
 
-        {{#each expense}}
+        {{#each records}}
         <tr>
           {{!-- <th scope="row">1</th> --}}
           <td class="align-middle">
-            {{this.category}}
+            {{this.category.icon}}
           </td>
 
           <td>

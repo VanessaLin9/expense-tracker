@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+
+
 const expenseSchema = new Schema ({
   name: {
     type: String, 
@@ -10,8 +12,8 @@ const expenseSchema = new Schema ({
     required: true
   },
   category: {
-    type: String,
-    required: true
+    type: Schema.Types.ObjectId,
+    ref: 'category'
   },
   amount: {
     type: Number,
