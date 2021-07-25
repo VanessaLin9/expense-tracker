@@ -5,15 +5,23 @@
 ## Installation-安裝說明
 
 1. clone本專案
-  https://github.com/VanessaLin9/expense-tracker.git
-2. 進入專案目錄 expense-tracker
+```
+ https://github.com/VanessaLin9/expense-tracker.git
+```
+2. 進入專案目錄 
+```
+  expense-tracker
+```
 3. 安裝相關套件
-    npm i
+```
+ npm i
+```
 4. 新增種子資料
-  npm run seed
+     npm run seed
 5. 啟動專案 
-  npm run dev
-6. 開啟瀏覽器, 輸入網址 [http://localhost:3000](http://localhost:3000)
+    npm run dev
+6. 開啟瀏覽器, 輸入網址 
+     [http://localhost:3000](http://localhost:3000)
 ***
 ## Features-專案功能
 
