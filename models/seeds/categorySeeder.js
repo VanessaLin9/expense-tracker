@@ -10,7 +10,7 @@ const categorySeed = [
   ['other', 'fa-pen']
 ].map(category => ({
   title: category[0],
-  icon: `<i class="fas ${category[1]}"></i>`
+  icon: `fas ${category[1]}`
 }))
 
 

@@ -13,7 +13,7 @@ const expenseSchema = new Schema ({
   },
   category: {
     type: Schema.Types.ObjectId,
-    ref: 'category'
+    ref: 'Category'
   },
   amount: {
     type: Number,
@@ -21,4 +21,4 @@ const expenseSchema = new Schema ({
   }
 })
 
-module.exports = mongoose.model('expense', expenseSchema)
+module.exports = mongoose.model('Record', expenseSchema)

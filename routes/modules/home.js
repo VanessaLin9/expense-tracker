@@ -8,31 +8,29 @@ const Category = require('../../models/category')
 router.get('/', (req, res) => {
   const Cate = req.query.filter
   const filter = {}
-  console.log(Cate)
+
 
   if (Cate) { filter['category'] = Cate }
+
   console.log(filter)
 
   const categories = []
+
   Category.find()
     .lean()
-    .then(category => {
-      categories.push(...category)
-      console.log(categories)
-    })
-    .catch(error => console.log(error))
-
-  
-  Expen.find(filter)
-    .populate(categories)
-    .lean()
     .sort({ _id: 'asc' })
+    .then(category => categories.push(...category))
+    .catch(error => console.error(error))
+
+  Expen.find(filter)
+    .populate('Category')
+    .lean()
     .then(records => {
-      console.log(records)
       let totalAmount = 0
       records.forEach(record => totalAmount += record.amount)
-      res.render('index', { records, totalAmount})
+      res.render('index', { records, totalAmount })
     })
+
     .catch(error => console.error(error))
 })
 

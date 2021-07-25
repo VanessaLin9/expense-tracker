@@ -11,12 +11,7 @@ db.once('open', () => {
 })
   .catch(error => console.log(error))
 
-
-
 const cateId = {}
-
-
-
 
 function createRecords() {
 
@@ -31,7 +26,7 @@ function createRecords() {
       return cateId
     })
     .then(id => {
-      
+
       for( let i=0; i<4; i++){
         let Sample = sample.results[i]
 
@@ -40,6 +35,13 @@ function createRecords() {
           category: cateId[Sample.category],
           date: Sample.date,
           amount: Sample.amount
+        })
+        .then( record => {
+          Category.findById(cateId[Sample.category])
+          .then( category => {
+            category.records.push(record._id)
+            category.save()
+          })
         })
       }
     })
