@@ -15,6 +15,10 @@ const expenseSchema = new Schema ({
     type: Schema.Types.ObjectId,
     ref: 'Category'
   },
+  categoryType: {
+    type: String,
+    required: true
+  },
   amount: {
     type: Number,
     required: true

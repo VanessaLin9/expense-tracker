@@ -11,8 +11,12 @@ header {
   background-size: cover;
 }
 
-.search-bar .search-bar-outer {
-  margin: 0 auto;
+.fas {
+  color:lightblue;
+}
+
+/* .search-bar .search-bar-outer { */
+  /* margin: 0 auto;
   max-width: 680px;
   background-color: #fce2cf;
   border-radius: 8px;
@@ -67,7 +71,7 @@ header {
   text-align: center;
   font-size: 3rem;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
+} */
 
 @media screen and (max-width: 992px) {
   

@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Expen = require('../../models/record')
 const Category = require('../../models/category')
+const record = require('../../models/record')
 
 
 //新增
@@ -9,12 +10,31 @@ router.get('/new', (req, res) => {
   res.render('new')
 })
 
-router.post('/', (req, res) => {
-  const { name, category, date, amount } = req.body
+router.post('/', async(req, res) => {
+  try {
+    const { name, category, date, amount } = req.body
+    const recode = {
+      name,
+      date,
+      categoryType: category,
+      amount
+    }
 
-  return Expen.create({ name, category, date, amount })
-    .then(() => res.redirect('/'))
-    .catch(error => console.log(error))
+    await Category.findOne({ title: category})
+          .then( category => {
+            console.log('find category', category)
+            record.category = category._id
+          })
+
+    return Expen.create(recode)
+      .then(() => res.redirect('/'))
+      .catch(error => console.log(error))
+
+  } catch (error) {
+    console.log(error)
+    res.render('new', {Error})
+  }
+  
 })
 
 //編輯
@@ -34,7 +54,7 @@ router.put('/:id', (req, res) => {
   return Expen.findById(id)
     .then(expense => {
       expense.name = name
-      expense.category = category
+      expense.categoryType = category
       expense.date = date
       expense.amount = amount
       return expense.save()

@@ -6,7 +6,8 @@ const app = express()
 //畫面, 資料
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
-const dateStyle = require('./tools/tools')
+const dateStyle = require('./tools/helper')
+
 app.use(express.static('public'))
 require('./config/mongoose')
 

@@ -1,4 +1,7 @@
 <div class="container mt-3">
+
+  {{#if Error}}<h1>資料連線異常請再試一次或聯絡管理員</h1>{{/if}}
+
   <div class="d-flex justify-content-center">
     <form action="/expense" method="POST">
 

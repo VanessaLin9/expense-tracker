@@ -33,6 +33,7 @@ function createRecords() {
         Expen.create({
           name: Sample.name,
           category: cateId[Sample.category],
+          categoryType: Sample.category,
           date: Sample.date,
           amount: Sample.amount
         })
