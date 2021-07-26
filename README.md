@@ -17,9 +17,13 @@
  npm i
 ```
 4. 新增種子資料
-     npm run seed
-5. 啟動專案 
+```
+ npm run seed
+```
+5. 啟動專案
+``` 
     npm run dev
+```
 6. 開啟瀏覽器, 輸入網址 
      [http://localhost:3000](http://localhost:3000)
 ***
