@@ -7,6 +7,10 @@ router.get('/login', (req, res) => {
 })
 
 router.post('/login', (req, res) => {
+  router.post('/login', passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/users/login'
+  }))
 })
 
 router.get('/register', (req, res) => {
@@ -15,7 +19,7 @@ router.get('/register', (req, res) => {
 
 router.post('/register', (req, res) => {
   const { name, email, password, confirmPassword } = req.body
-  
+
   // 檢查使用者是否已經註冊
   User.findOne({ email }).then(user => {
     if (user) {
