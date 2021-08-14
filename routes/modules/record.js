@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
-const Expen = require('../../models/record')
+
 const Category = require('../../models/category')
-const record = require('../../models/record')
+const Record = require('../../models/record')
 
 
 //新增
@@ -23,10 +23,11 @@ router.post('/', async(req, res) => {
     await Category.findOne({ title: category})
           .then( category => {
             console.log('find category', category)
-            record.category = category._id
+            recode.category = category._id // assign the _id from the 'Category'
           })
+          
 
-    return Expen.create(recode)
+    return Record.create(recode)
       .then(() => res.redirect('/'))
       .catch(error => console.log(error))
 
@@ -40,7 +41,7 @@ router.post('/', async(req, res) => {
 //編輯
 router.get('/:id/edit', (req, res) => {
   const id = req.params.id
-  return Expen.findById(id)
+  return Record.findById(id)
     .lean()
     .then(expense => {
       const Date = expense.date.toLocaleDateString({ year: 'numeric', month: '2-digit', day: '2-digit' })
@@ -51,7 +52,7 @@ router.get('/:id/edit', (req, res) => {
 router.put('/:id', (req, res) => {
   const id = req.params.id
   const { name, category, date, amount } = req.body
-  return Expen.findById(id)
+  return Record.findById(id)
     .then(expense => {
       expense.name = name
       expense.categoryType = category
@@ -66,7 +67,7 @@ router.put('/:id', (req, res) => {
 //刪除
 router.delete('/:id', (req, res) => {
   const id = req.params.id
-  return Expen.findById(id)
+  return Record.findById(id)
     .then(expense => expense.remove())
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))

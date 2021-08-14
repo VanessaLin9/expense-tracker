@@ -3,9 +3,9 @@ const router = express.Router()
 
 
 const home = require('./modules/home')
-const expense = require('./modules/expense')
+const record = require('./modules/record')
 
 router.use('/', home)
-router.use('/expense', expense)
+router.use('/record', record)
 
 module.exports = router

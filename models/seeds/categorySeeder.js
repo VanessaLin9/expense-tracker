@@ -3,14 +3,14 @@ const Category = require('../category')
 
 
 const categorySeed = [
-  ['home', 'fa-home'],
-  ['shuttle', 'fa-shuttle-van'],
-  ['entertain', 'fa-grin-beam'],
-  ['food', 'fa-utensils'],
-  ['other', 'fa-pen']
+  ['home', '<i class="fas fa-home fa-3x"></i>'],
+  ['shuttle', '<i class="fas fa-shuttle-van fa-3x"></i>'],
+  ['entertain', '<i class="fas fa-grin-beam fa-3x"></i>'],
+  ['food', '<i class="fas fa-utensils fa-3x"></i>'],
+  ['other', '<i class="fas fa-pen fa-3x"></i>']
 ].map(category => ({
   title: category[0],
-  icon: `fas ${category[1]}`
+  icon: `${category[1]}`
 }))
 
 

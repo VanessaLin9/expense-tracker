@@ -1,6 +1,6 @@
 <div class="container mt-3">
   <div class="d-flex justify-content-center">
-    <form action="/expense/{{expense._id}}?_method=PUT" method="POST">
+    <form action="/record/{{expense._id}}?_method=PUT" method="POST">
 
       <div class="d-flex justify-content-between">
         <small style=" display: inline;">*必填欄位</small>
@@ -32,7 +32,7 @@
 
       <div class="form-group row">
         <label for="amount" class="col-sm-4 card-title mb-1">*金額 : </label>
-        <input type="number" placeholder="請輸入支出金額" name="amount" id="amount" class="col-sm-8"
+        <input type="number" placeholder="請輸入支出金額" name="amount" id="amount" min="1" class="col-sm-8"
           value="{{ expense.amount }}" required>
       </div>
 

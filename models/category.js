@@ -11,7 +11,8 @@ const categorySchema = new Schema({
   },
   records: [{
     type: Schema.Types.ObjectId,
-    ref: 'Record'
+    ref: 'Record',
+    index: true
   }]
 })
 

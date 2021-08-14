@@ -19,7 +19,7 @@ const PORT = process.env.PORT || 3000
 //模板引擎
 app.engine('handlebars', exphbs({ 
   defaultLayout: 'main',
-  helpers: dateStyle
+  helpers: { dateStyle }
 }))
 app.set('view engine', 'handlebars') //啟用模板引擎
 
