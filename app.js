@@ -4,6 +4,7 @@ const app = express()
 
 //登出登入
 const session = require('express-session')
+const usePassport = require('./config/passport')
 
 //畫面, 資料
 const exphbs = require('express-handlebars')
@@ -38,6 +39,7 @@ app.use(bodyParser.urlencoded({ extended: true}))
 //每筆資料都通過method override前處理
 app.use(methOverride('_method'))
 
+usePassport(app)
 app.use(routes)
 
 app.listen(PORT, () => {
