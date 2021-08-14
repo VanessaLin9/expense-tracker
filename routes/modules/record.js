@@ -13,18 +13,19 @@ router.get('/new', (req, res) => {
 router.post('/', async(req, res) => {
   try {
     const { name, category, date, amount, merchant } = req.body
+    const userId = req.user._id
     const recode = {
       name,
       date,
       categoryType: category,
       amount,
-      merchant
+      merchant,
+      userId
     }
 
     await Category.findOne({ title: category})
           .then( category => {
-            console.log('find category', category)
-            recode.category = category._id // assign the _id from the 'Category'
+            recode.category = category._id 
           })
           
 
@@ -41,8 +42,9 @@ router.post('/', async(req, res) => {
 
 //編輯
 router.get('/:id/edit', (req, res) => {
-  const id = req.params.id
-  return Record.findById(id)
+  const userId = req.user._id
+  const _id = req.params.id
+  return Record.findOne({ _id, userId })
     .lean()
     .then(expense => {
       const Date = expense.date.toLocaleDateString({ year: 'numeric', month: '2-digit', day: '2-digit' })
@@ -50,10 +52,12 @@ router.get('/:id/edit', (req, res) => {
     })
     .catch(error => console.log(error))
 })
+
 router.put('/:id', (req, res) => {
-  const id = req.params.id
+  const userId = req.user._id
+  const _id = req.params.id
   const { name, category, date, amount, merchant } = req.body
-  return Record.findById(id)
+  return Record.findOne({ _id, userId })
     .then(expense => {
       expense.name = name
       expense.categoryType = category
@@ -68,8 +72,9 @@ router.put('/:id', (req, res) => {
 
 //刪除
 router.delete('/:id', (req, res) => {
-  const id = req.params.id
-  return Record.findById(id)
+  const userId = req.user._id
+  const _id = req.params.id
+  return Record.findOne({ _id, userId })
     .then(expense => expense.remove())
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
