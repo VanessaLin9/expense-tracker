@@ -2,6 +2,8 @@
 const express = require('express')
 const app = express()
 
+//登出登入
+const session = require('express-session')
 
 //畫面, 資料
 const exphbs = require('express-handlebars')
@@ -23,7 +25,12 @@ app.engine('handlebars', exphbs({
 }))
 app.set('view engine', 'handlebars') //啟用模板引擎
 
-
+//認證結果處理
+app.use(session({
+  secret: 'ThisIsMySecret',
+  resave: false,
+  saveUninitialized: true
+}))
 
 //每筆資料前處理使用body-parser
 app.use(bodyParser.urlencoded({ extended: true}))
