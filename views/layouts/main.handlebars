@@ -22,8 +22,15 @@
     <a class="navbar-brand text-sm" href="/">家庭記帳本</a>
   </nav>
 
-  <div class="banner">
-     <h4 class=" font-weight-bold" style="padding: 1rem;">家庭記帳本</h4>
+  <div class="banner d-flex justify-content-around">
+     <h4 class=" font-weight-bold" style="padding: 1rem;">{{#if isAuthenticated}}{{ user.name}}'s {{/if}}家庭記帳本</h4>
+
+    {{#if isAuthenticated}}
+    <a href="/users/logout" class="btn btn-outline-secondary my-2">Logout</a>
+    {{else}}
+    <a href="/users/login" class="btn btn-outline-secondary my-2">Login</a>
+    {{/if}}
+
   </div>
 
   {{{body}}}  
