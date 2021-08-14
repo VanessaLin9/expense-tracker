@@ -12,12 +12,13 @@ router.get('/new', (req, res) => {
 
 router.post('/', async(req, res) => {
   try {
-    const { name, category, date, amount } = req.body
+    const { name, category, date, amount, merchant } = req.body
     const recode = {
       name,
       date,
       categoryType: category,
-      amount
+      amount,
+      merchant
     }
 
     await Category.findOne({ title: category})
@@ -51,13 +52,14 @@ router.get('/:id/edit', (req, res) => {
 })
 router.put('/:id', (req, res) => {
   const id = req.params.id
-  const { name, category, date, amount } = req.body
+  const { name, category, date, amount, merchant } = req.body
   return Record.findById(id)
     .then(expense => {
       expense.name = name
       expense.categoryType = category
       expense.date = date
       expense.amount = amount
+      expense.merchant = merchant
       return expense.save()
     })
     .then(() => res.redirect('/'))
