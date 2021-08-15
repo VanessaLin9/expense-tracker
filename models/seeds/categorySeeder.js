@@ -21,5 +21,6 @@ db.once('open', () => {
       console.log('category seeder is done!')
       return db.close()
     })
+    .catch(error => console.log(error))
 })
-  .catch(error => console.log(error))
+  

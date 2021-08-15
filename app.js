@@ -1,6 +1,9 @@
 //express 框架
 const express = require('express')
 const app = express()
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 
 //登出登入
 const session = require('express-session')
@@ -18,7 +21,7 @@ require('./config/mongoose')
 //連線
 const methOverride = require('method-override')
 const routes = require('./routes')
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT
 
 //模板引擎
 app.engine('handlebars', exphbs({ 
@@ -29,7 +32,7 @@ app.set('view engine', 'handlebars') //啟用模板引擎
 
 //認證結果處理
 app.use(session({
-  secret: 'ThisIsMySecret',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true
 }))
