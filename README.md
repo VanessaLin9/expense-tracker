@@ -31,12 +31,19 @@
 7. 開啟瀏覽器, 輸入網址 
      [http://localhost:3000](http://localhost:3000)
 ***
+## Heroku 網頁試用版
+
+請點連結 [https://still-thicket-01611.herokuapp.com/](https://still-thicket-01611.herokuapp.com/users/login)
+
+***
 ## Seed User-試用帳密
 + email: root@example.com
 + password: 12345678
 
 ***
-## Features-專案功能
+## Features-專案介紹
+
+![首頁](https://imgur.com/nwfQuNM.jpg)
 
 + 使用者認證功能
 + 使用者可以在首頁新增、修改與刪除支出紀錄
